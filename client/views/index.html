@@ -1,0 +1,29 @@
+<head>
+<title>Hello Meteor</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+</head>
+
+<template name="layout">
+  <div class="nav-decorator"></div>
+  <div class="container">
+    <div class="header">
+      <div id="logo">
+        WT<br><small>Archive</small>
+      </div>
+      <h1 id="top-header">Watchtower Society Archive</h1>
+      {{> navigation}}
+    </div>
+    <div id="main">
+      {{> sidebar}}
+
+      <div id="content">
+        <div class="content-wrapper">
+          {{> yield }}
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      WTS Archive, no copyright whatsoever. Got materials? Contact us!
+    </div>
+  </div>
+</template>

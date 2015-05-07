@@ -1,0 +1,9 @@
+# Some directories that shouldn't be checked out
+build/
+logs/
+node_modules/
+dump/
+
+# OSX junk files
+.DS_Store
+._*
