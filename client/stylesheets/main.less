@@ -35,17 +35,16 @@ body {
     width: 100%;
     list-style: none;
     padding: 0 0 0 100px;
-}
 
-#navigation li {
-    color: #fff;
-    float: left;
-    padding: 13px 30px 0 0px;
-}
-
-#navigation li a {
-    color: #fff;
-    cursor: pointer;
+    li {
+        color: #fff;
+        float: left;
+        padding: 13px 30px 0 0px;
+        a {
+            color: #fff;
+            cursor: pointer;
+        }
+    }
 }
 
 #top-header {
@@ -71,59 +70,62 @@ body {
 #sidebar {
     width: 260px;
     float: left;
+
+    h2 {
+        margin: 0 0 17px 20px;
+        padding: 0;
+        font-size: 16px;
+        color: #777;
+    }
+
+    h3 {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        color: #555;
+    }
 }
 
 #searchbar {
     padding: 20px;
     position: relative;
+
+    input {
+        background: transparent;
+        border: 0 none;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+        padding-left: 20px;
+
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid #999;
+        }
+    }
+
+    label {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: #aaa;
+    }
 }
 
-#searchbar input {
-    background: transparent;
-    border: 0 none;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    padding-left: 20px;
-}
 
-#searchbar input:focus {
-    outline: none;
-    border-bottom: 1px solid #999;
-}
+#sidebar-items {
+    ul {
+        color: #555;
 
-#searchbar label {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    color: #aaa;
-}
+        li {
+            margin-bottom: 10px;
 
-#sidebar-items ul {
-    color: #555;
-}
-
-#sidebar-items ul li {
-    margin-bottom: 10px;
-}
-
-#sidebar-items ul li small {
-    color: #999;
-    display: block;
-    margin-top: -1px;
-}
-
-#sidebar h2 {
-    margin: 0 0 17px 20px;
-    padding: 0;
-    font-size: 16px;
-    color: #777;
-}
-
-#sidebar h3 {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    color: #555;
+            small {
+                color: #999;
+                display: block;
+                margin-top: -1px;
+            }
+        }
+    }
 }
 
 #content {
@@ -140,11 +142,12 @@ body {
 
 #content {
     padding: 25px 35px;
-}
-#content h2 {
-    font-size: 26px;
-    margin: 0 0 15px;
-    border-bottom: 1px solid #c0c4c2;
+
+    h2 {
+        font-size: 26px;
+        margin: 0 0 15px;
+        border-bottom: 1px solid #c0c4c2;
+    }
 }
 
 #footer {
