@@ -10,11 +10,12 @@
       <div id="logo">
         WT<br><small>Archive</small>
       </div>
-      <h1 id="top-header">Watchtower Society Archive</h1>
+      <h1 id="top-header" class="hidden-xxs">Watchtower Society Archive</h1>
+      <h1 id="top-header" class="visible-xxs">WTS Archive</h1>
       {{> navigation}}
     </div>
     <div id="main">
-      {{> sidebar}}
+      {{> Template.dynamic template=sidebarTemplate}}
 
       <div id="content">
         <div class="content-wrapper">
