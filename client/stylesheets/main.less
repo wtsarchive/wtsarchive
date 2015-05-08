@@ -2,6 +2,18 @@ body {
     background: #ECEAE7;
 }
 
+.btn-primary {
+    color: #fff;
+    background-color: #D46715;
+    border-color: #c45310;
+
+    &:hover, &:active, &:focus {
+        background-color: #c45310 !important;
+        border-color: #b24200 !important;
+        outline: none !important;
+    }
+}
+
 .nav-decorator {
     background: #373433;
     height: 42px;
@@ -45,6 +57,10 @@ body {
             cursor: pointer;
         }
     }
+}
+
+#login-dropdown-list .dropdown-menu a {
+    color: #D46715 !important;
 }
 
 #top-header {
@@ -156,6 +172,7 @@ body {
     color: #fff;
     text-align: center;
     padding: 10px;
+    clear: both;
 
     a {
         color: #F49765;

@@ -14,3 +14,11 @@ Meteor.Spinner.options = {
     color: '#000',
     speed: 2
 };
+
+UI.registerHelper('isAdmin', function() {
+    return Roles.userIsInRole(Meteor.user(), ['admin']);
+});
+
+Accounts.ui.config({
+    passwordSignupFields: "USERNAME_AND_OPTIONAL_EMAIL"
+});

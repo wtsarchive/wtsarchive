@@ -1,8 +1,14 @@
 <template name="navigation">
 <ul id="navigation">
-  <li><a>Home</a></li>
-  <li><a>Publications</a></li>
-  <li><a>Letters</a></li>
-  <li class="pull-right"><a>Login / Register</a></li>
+  <li><a href="{{pathFor 'home'}}">Home</a></li>
+  <li><a href="{{pathFor 'publications'}}">Publications</a></li>
+  <li><a href="{{pathFor 'letters'}}">Letters</a></li>
+  {{> loginButtons}}
 </ul>
+</template>
+
+<template name="_loginButtonsAdditionalLoggedInDropdownActions">
+  {{#if isAdmin}}
+  <a class="btn btn-default btn-block" href="{{pathFor 'admin.index'}}">Admin panel</a>
+  {{/if}}
 </template>
