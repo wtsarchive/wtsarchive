@@ -1,8 +1,8 @@
 <template name="navigation">
 <ul id="navigation">
-  <li><a href="{{pathFor 'home'}}">Home</a></li>
-  <li><a href="{{pathFor 'publications'}}">Publications</a></li>
-  <li><a href="{{pathFor 'letters'}}">Letters</a></li>
+  <li class="{{active 'home'}}"><a href="{{pathFor 'home'}}">Home</a></li>
+  <li class="{{active 'publications'}}"><a href="{{pathFor 'publications'}}">Publications</a></li>
+  <li class="{{active 'letters'}}"><a href="{{pathFor 'letters'}}">Letters</a></li>
   {{> loginButtons}}
 </ul>
 </template>
