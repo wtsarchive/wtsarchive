@@ -2,6 +2,14 @@ body {
     background: #ECEAE7;
 }
 
+a {
+    color: #D46715;
+
+    &:hover, &:active, &:focus {
+        color: #b24200;
+    }
+}
+
 .btn-primary {
     color: #fff;
     background-color: #D46715;
@@ -107,6 +115,11 @@ body {
 #sidebar {
     width: 260px;
     float: left;
+    padding-bottom: 10px;
+
+    .sidebar-section {
+        margin-top: 20px;
+    }
 
     h2 {
         margin: 0 0 17px 20px;
@@ -168,7 +181,7 @@ body {
 #content {
     box-shadow: -10px 0 25px rgba(0,0,0,0.1);
     margin-left: 260px;
-    min-height: 150px;
+    min-height: 220px;
 }
 
 .content-wrapper {

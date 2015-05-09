@@ -1,0 +1,19 @@
+<template name="sidebarAdmin">
+<div id="sidebar">
+  <div class="sidebar-section">
+    <h2>Archive</h2>
+    <ul>
+      <li><a href="{{pathFor 'admin.items.add'}}">Add new item</a></li>
+      <li><a href="{{pathFor 'admin.items.list'}}">Manage items</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-section">
+    <h2>Translate</h2>
+    <ul>
+      <li><a href="{{pathFor 'admin.strings.languages'}}">Languages</a></li>
+      <li><a href="{{pathFor 'admin.strings.manage'}}">Translations</a></li>
+    </ul>
+  </div>
+</div>
+</template>
