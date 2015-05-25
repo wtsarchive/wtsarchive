@@ -15,7 +15,15 @@
       {{> navigation}}
     </div>
     <div id="main">
-      {{> Template.dynamic template=sidebarTemplate}}
+      <div id="sidebar">
+        <div id="sidebar-menu">
+          <h2>Menu</h2>
+          <ul>
+            {{> navigationLinks}}
+          </ul>
+        </div>
+        {{> Template.dynamic template=sidebarTemplate}}
+      </div>
 
       <div id="content">
         <div class="content-wrapper">
