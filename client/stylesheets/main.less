@@ -81,14 +81,12 @@ a {
 
         &.active {
             font-weight: bold;
-            a {
-                color: #ddd;
-            }
         }
         
         a {
             color: #fff;
             cursor: pointer;
+            text-decoration: none !important;
         }
     }
 }
@@ -209,15 +207,20 @@ a {
     background: #FFF;
     box-shadow: 0 0 2.5em .5em rgba(0, 0, 0, 0.4);
     z-index: 1;
+    display: -webkit-flex; 
     display: flex;
+    -webkit-flex-direction: column;
     flex-direction: column;
     height: 100%;
 }
 
 #main {
     clear: both;
+    -webkit-flex: 1;
     flex: 1;
+    display: -webkit-flex; 
     display: flex;
+    -webkit-flex-direction: row;
     flex-direction: row;
 }
 
@@ -314,6 +317,7 @@ a {
 
 #content {
     box-shadow: -10px 0 25px rgba(0,0,0,0.1);
+    -webkit-flex: 1;
     flex: 1;
 }
 

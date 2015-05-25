@@ -1,6 +1,6 @@
 Template.navigationLinks.helpers({
     active: function(item) {
-        return (Router.current().route.getName() == item) ? "active" : "";
+        return (Router.current().route.getName().indexOf(item) === 0) ? "active" : "";
     }
 });
 
