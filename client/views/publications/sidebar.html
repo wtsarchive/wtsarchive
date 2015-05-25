@@ -1,0 +1,18 @@
+<template name="sidebarPublications">
+  <div id="searchbar">
+    <label for="search"><i class="fa fa-search"></i></label>
+    <input type="text" name="search" class="input" placeholder="Search...">
+  </div>
+  <div id="sidebar-items">
+    <h2>Categories</h2>
+    <ul class="categories">
+      {{#each categories}}
+      <li>
+        <a class="category" href="{{pathFor 'pubs.list'}}">{{name}}
+          <i class="fa fa-chevron-right"></i>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

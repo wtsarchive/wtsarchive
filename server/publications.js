@@ -12,3 +12,8 @@ Meteor.publish('items-all', function () {
 Meteor.publish('items-one', function (id) {
     return Countries.findOne(id);
 });
+
+// Categories
+Meteor.publish('categories', function () {
+    return Categories.find();
+});
