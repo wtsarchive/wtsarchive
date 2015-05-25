@@ -18,3 +18,12 @@ Template.layout.helpers({
         return "sidebarHome";
     }
 });
+
+Template.layout.events({
+    "touchend #content": function() {
+        if ($('#sidebar').hasClass("on")) {
+            $('#sidebar').toggle('fast');
+            $('#sidebar').toggleClass('on');
+        }
+    }
+});
