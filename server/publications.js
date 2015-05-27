@@ -17,3 +17,8 @@ Meteor.publish('items-one', function (id) {
 Meteor.publish('categories', function () {
     return Categories.find();
 });
+
+// Pages
+Meteor.publish('pages', function () {
+    return Pages.find();
+});

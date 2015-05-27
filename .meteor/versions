@@ -56,6 +56,7 @@ mrt:bootstrap-growl@0.1.4
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ordered-dict@1.0.3
+perak:markdown@1.0.5
 raix:handlebar-helpers@0.2.4
 rajit:bootstrap3-datepicker@1.4.1
 random@1.0.3

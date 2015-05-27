@@ -50,5 +50,17 @@ Subscription = {
         this.subscribe(name);
     }
 };
-Subscription.createAndSubscribe("categories");
 
+Page = {
+    render: function(page) {
+        return "## " + page.title + "\n\n" + page.text;
+    },
+    getByIdentifier: function(id) {
+        var page = Pages.findOne({identifier: 'homepage'});
+        if (!Subscription.ready('pages')) return "Loading...";
+        return this.render(page);
+    }
+};
+
+Subscription.createAndSubscribe("categories");
+Subscription.createAndSubscribe("pages");
