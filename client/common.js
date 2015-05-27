@@ -52,13 +52,23 @@ Subscription = {
 };
 
 Page = {
-    render: function(page) {
-        return "## " + page.title + "\n\n" + page.text;
+    render: function(title, text) {
+        return "## " + title + "\n\n" + text;
+    },
+    show: function(page) {
+        if (!Subscription.ready('pages')) return "Loading...";
+        if (!page)
+            return this.render("Not found", "Requested article has not been found!");
+        else
+            return this.render(page.title, page.text);
     },
     getByIdentifier: function(id) {
-        var page = Pages.findOne({identifier: 'homepage'});
-        if (!Subscription.ready('pages')) return "Loading...";
-        return this.render(page);
+        var page = Pages.findOne({identifier: id});
+        return this.show(page);
+    },
+    getBySlug: function(slug) {
+        var page = Pages.findOne({slug: slug});
+        return this.show(page);
     }
 };
 
