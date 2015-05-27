@@ -1,0 +1,8 @@
+<template name="adminPagesList">
+<h2>Article pages</h2>
+<ul>
+{{#each articles}}
+  <li><a href="{{pathFor 'admin.pages.edit'}}">{{title}}</a></li>
+{{/each}}
+</ul>
+</template>
