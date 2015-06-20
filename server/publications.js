@@ -22,3 +22,8 @@ Meteor.publish('categories', function () {
 Meteor.publish('pages', function () {
     return Pages.find();
 });
+
+// Languages
+Meteor.publish('languages', function () {
+    return Languages.find();
+});

@@ -1,0 +1,7 @@
+<template name="adminLanguagePicker">
+  <div class="btn-group pull-right header-buttons language-picker" role="group">
+  {{#each languages}}
+    <button type="button" class="btn btn-default btn-xs {{#if $.Session.equals 'adminSelectedLanguage' code}}active{{/if}}" data-lang-code="{{code}}">{{name}}</button>
+  {{/each}}
+  </div>
+</template>

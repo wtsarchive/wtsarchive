@@ -1,5 +1,7 @@
 <template name="adminPagesList">
-<h2>Article pages</h2>
+<h2>Article pages
+  {{> adminLanguagePicker}}
+</h2>
 <ul>
 {{#each articles}}
   <li><a href="{{pathFor 'admin.pages.edit'}}">{{title}}</a></li>

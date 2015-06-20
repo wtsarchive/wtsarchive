@@ -19,6 +19,10 @@ UI.registerHelper('isAdmin', function() {
     return Roles.userIsInRole(Meteor.user(), ['admin']);
 });
 
+UI.registerHelper('languages', function() {
+    return Languages.find({}, {sort: {name: 1}});
+});
+
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_AND_OPTIONAL_EMAIL"
 });
@@ -63,7 +67,7 @@ Page = {
             return this.render(page.title, page.text);
     },
     getByIdentifier: function(id) {
-        var page = Pages.findOne({identifier: id});
+        var page = Pages.findOne({identifier: id, lang: Session.get("language")});
         return this.show(page);
     },
     getBySlug: function(slug) {
@@ -72,5 +76,6 @@ Page = {
     }
 };
 
+Subscription.createAndSubscribe("languages");
 Subscription.createAndSubscribe("categories");
 Subscription.createAndSubscribe("pages");

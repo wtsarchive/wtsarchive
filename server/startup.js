@@ -4,8 +4,8 @@
  */
 
 Meteor.startup(function () {
-    // Populate the database with default values
-    // Create default admin user
-    // Etc...
+    if (Languages.find().count() === 0) {
+        Languages.insert({name: "English", code: "en"});
+        Languages.insert({name: "Polish", code: "pl"});
+    }
 });
-

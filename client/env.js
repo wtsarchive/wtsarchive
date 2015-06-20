@@ -4,4 +4,5 @@
  */
 
 ClientConfig = {
+    defaultLanguage: "en"
 };
