@@ -1,0 +1,18 @@
+<template name="adminCategoriesList">
+<h2>Archive categories
+  {{> adminLanguagePicker}}
+</h2>
+
+<p>
+  <a class="btn btn-default btn-sm" href="{{pathFor 'admin.categories.add'}}">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new category
+  </a>
+</p>
+
+<h4>Category list</h4>
+<ul>
+{{#each categories}}
+  <li><a href="{{pathFor 'admin.categories.edit'}}">{{name}}</a></li>
+{{/each}}
+</ul>
+</template>

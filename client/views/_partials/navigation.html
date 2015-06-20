@@ -14,12 +14,12 @@
 
 <template name="_loginButtonsAdditionalLoggedInDropdownActions">
   {{#if isAdmin}}
-  <a class="btn btn-default btn-block" href="{{pathFor 'admin.index'}}">Admin panel</a>
+  <a class="btn btn-default btn-block" href="{{pathFor 'admin.index'}}">{{_ 'Admin panel'}}</a>
   {{/if}}
 </template>
 
 <template name="navigationLinks">
-  <li class="{{active 'home'}}"><a href="{{pathFor 'home'}}">Home</a></li>
-  <li class="{{active 'pubs'}}"><a href="{{pathFor 'pubs.index'}}">Publications</a></li>
-  <li class="{{active 'letters'}}"><a href="{{pathFor 'letters.index'}}">Letters</a></li>
+  <li class="{{active 'home'}}"><a href="{{pathFor 'home'}}">{{_ 'Home'}}</a></li>
+  <li class="{{active 'pubs'}}"><a href="{{pathFor 'pubs.index'}}">{{_ 'Publications'}}</a></li>
+  <li class="{{active 'letters'}}"><a href="{{pathFor 'letters.index'}}">{{_ 'Letters'}}</a></li>
 </template>

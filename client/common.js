@@ -23,6 +23,19 @@ UI.registerHelper('languages', function() {
     return Languages.find({}, {sort: {name: 1}});
 });
 
+// Global method and template helper to return text strings
+UI.registerHelper("_", function(id) {
+    var args = Array.prototype.slice.call(arguments, 1).slice(0, -1);
+    var result;
+
+    if (typeof(args) != "undefined" && args.length > 0)
+        result = __.apply(null, [id, args]);
+    else
+        result = __(id);
+
+    return result.replace(/\n/g, "<br>");
+});
+
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_AND_OPTIONAL_EMAIL"
 });
@@ -76,6 +89,12 @@ Page = {
     }
 };
 
+Deps.autorun(function() {
+    var lang = Session.get("language");
+    accountsUIBootstrap3.setLanguage(lang);
+});
+
+Subscription.createAndSubscribe("i18n");
 Subscription.createAndSubscribe("languages");
 Subscription.createAndSubscribe("categories");
 Subscription.createAndSubscribe("pages");

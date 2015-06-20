@@ -183,11 +183,21 @@ a {
     #sidebar.on {
         display: block;
     }
+    #navigation {
+        .language-picker {
+            margin-right: 60px;
+        }
+    }
 }
 
 @media screen and (max-width: 550px) {
-    #navigation li {
-        display: none;
+    #navigation {
+        li {
+            display: none;
+        }
+        .language-picker {
+            display: none;
+        }
     }
     #navigation #login-dropdown-list {
         display: block;
@@ -341,17 +351,10 @@ a {
     box-shadow: -10px 0 25px rgba(0,0,0,0.1);
     -webkit-flex: 1;
     flex: 1;
-    min-width: 320px;
-}
-
-.content-wrapper {
-    margin: 0;
-    padding: 0;
-}
-
-#content {
     .content-wrapper {
+        padding: 0;
         margin: 25px 35px;
+        min-width: 270px;
         display: block;
         h2 {
             font-size: 26px;
@@ -363,10 +366,12 @@ a {
 
 @media screen and (max-width: 550px) {
     #content {
-        padding: 20px 15px;
+        .content-wrapper {
+            margin: 20px 15px;
 
-        h2 {
-            font-size: 23px;
+            h2 {
+                font-size: 22px;
+            }
         }
     }
 }

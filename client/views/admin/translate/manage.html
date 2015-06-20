@@ -1,3 +1,39 @@
 <template name="adminStringsManage">
 <h2>Translations management</h2>
+
+<div id="content-filter">
+  <input type="text" class="form-control col-xs-12" id="content-filter-text" placeholder="Filter strings...">
+</div>
+
+<br clear="both">
+<h4>Strings list:</h4>
+
+<ul id="admin-strings-list">
+  {{#if getLength strings}}
+    {{#each strings}}
+    <li data-id="{{_id}}"><a href="{{pathFor 'admin.strings.edit'}}">{{text}}</a></li>
+    {{/each}}
+  {{else}}
+    {{#if loading}}
+      <p>Loading strings list...</p>
+    {{/if}}
+  {{/if}}
+</ul>
+</template>
+
+<template name="adminStringsEdit">
+  <h2>Edit string</h2>
+  <h4>English:</h4>
+  <textarea id="content-edit-text" class="form-control">{{text}}</textarea>
+
+  {{#each localizedStrings}}
+  <h4>{{language.name}}:</h4>
+
+  <textarea class="content-edit-text-localized form-control" data-language="{{language.code}}">{{translation.text}}</textarea>
+  {{/each}} 
+
+  <br>
+  <p>
+    <button type="button" class="btn btn-primary save-btn" id="save-btn">Save</button>
+  </p>
 </template>

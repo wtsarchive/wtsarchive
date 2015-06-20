@@ -1,3 +1,17 @@
 <template name="adminItemsList">
-<h2>Manage archive items</h2>
+<h2>Manage archive items
+  {{> adminLanguagePicker}}
+</h2>
+
+<p>
+  <a class="btn btn-default btn-sm" href="{{pathFor 'admin.items.add'}}">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new item
+  </a>
+</p>
+
+<h4>Categories</h4>
+
+<ul>
+  <li><a href="#">...</a></li>
+</ul>
 </template>

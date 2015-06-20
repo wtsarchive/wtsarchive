@@ -10,14 +10,14 @@
       <div id="logo">
         WTS<br><small>Archive</small>
       </div>
-      <h1 id="top-header" class="hidden-xxs">Watchtower Society Archive</h1>
-      <h1 id="top-header" class="visible-xxs">WTS Archive</h1>
+      <h1 id="top-header" class="hidden-xxs">{{_ 'Watchtower Society Archive'}}</h1>
+      <h1 id="top-header" class="visible-xxs">{{_ 'WTS Archive'}}</h1>
       {{> navigation}}
     </div>
     <div id="main">
       <div id="sidebar">
         <div id="sidebar-menu">
-          <h2>Menu</h2>
+          <h2>{{_ 'Menu'}}</h2>
           <ul>
             {{> navigationLinks}}
           </ul>
@@ -32,9 +32,9 @@
       </div>
     </div>
     <div id="footer">
-      <span>WTS Archive does not hold copyright over this content.</span>
-      <span>All publications are copyrighted by their respective owners.</span><br>
-      Got something that should be listed here? <a href="mailto:wtsarchive@gmail.com">Contact us!</a>
+      <span>{{_ 'WTS Archive does not hold copyright over this content.'}}</span>
+      <span>{{_ 'All publications are copyrighted by their respective owners.'}}</span><br>
+      {{_ 'Got something that should be listed here?'}} <a href="mailto:wtsarchive@gmail.com">{{_ 'Contact us!'}}</a>
     </div>
   </div>
 </template>

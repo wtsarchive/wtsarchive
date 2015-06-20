@@ -27,3 +27,8 @@ Meteor.publish('pages', function () {
 Meteor.publish('languages', function () {
     return Languages.find();
 });
+
+// Publish application strings (text content)
+Meteor.publish('i18n', function (id) {
+    return Strings.find();
+});
