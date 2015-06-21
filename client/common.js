@@ -80,7 +80,7 @@ Page = {
             return this.render(page.title, page.text);
     },
     getByIdentifier: function(id) {
-        var page = Pages.findOne({identifier: id, lang: Session.get("language")});
+        var page = Pages.findOne({identifier: id, language: Session.get("language")});
         return this.show(page);
     },
     getBySlug: function(slug) {
