@@ -3,15 +3,15 @@
   {{> adminLanguagePicker}}
 </h2>
 
-<p>
+<div class="row">
+  <div class="col-xs-6 col-md-4">
+    <input type="text" class="form-control" id="content-filter-text" placeholder="Filter strings...">
+  </div>
+  <div class="col-xs-6 col-md-4">
   <a class="btn btn-default btn-sm" href="{{pathFor 'admin.items.add'}}">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new item
   </a>
-</p>
+</div>
+</div>
 
-<h4>Categories</h4>
-
-<ul>
-  <li><a href="#">...</a></li>
-</ul>
 </template>

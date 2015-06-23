@@ -7,3 +7,7 @@ dump/
 # OSX junk files
 .DS_Store
 ._*
+
+# MUP
+mup.json
+settings.json
