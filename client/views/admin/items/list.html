@@ -7,7 +7,16 @@
 </h2>
 
 <div id="admin-items-filter" class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
+    Type:
+    <select id="admin-items-type">
+      <option value="">All</option>
+      {{#each types}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="col-md-4">
     Category:
     <select id="admin-items-category">
       <option value="">All</option>
@@ -16,9 +25,8 @@
       {{/each}}
     </select>
   </div>
-  <div class="col-md-6">
-    Filter items:
-    <input type="text" class="form-control input-sm" id="content-filter-text" placeholder="Publication name, code, etc...">
+  <div class="col-md-4">
+    <input type="text" class="form-control input-sm" id="content-filter-text" placeholder="Filter by name, code, etc...">
   </div>
 </div>
 

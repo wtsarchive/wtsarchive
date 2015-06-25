@@ -6,19 +6,30 @@ Template.adminItemsList.rendered = function() {
 };
 
 Template.adminItemsList.helpers({
+  types: function() {
+    return ItemTypes;
+  },
   categories: function() {
     return Categories.find();
   },
   items: function() {
+    var findObj = {};
+    var type = Session.get("adminItemsType");
     var category = Session.get("adminItemsCategory");
+    if (type)
+      findObj.type = type;
     if (category)
-      return Items.find({category: category});
-    else
-      return Items.find();
+      findObj.category = category;
+
+    return Items.find(findObj);
   }
 });
 
 Template.adminItemsList.events({
+  "change #admin-items-type": function(e) {
+    var type = $(e.currentTarget).val();
+    Session.set("adminItemsType", type);
+  },
   "change #admin-items-category": function(e) {
     var category = $(e.currentTarget).val();
     Session.set("adminItemsCategory", category);
