@@ -10,7 +10,7 @@ Meteor.Spinner.options = {
     width: 5,
     radius: 15,
     rotate: 0,
-    direction: 1, 
+    direction: 1,
     color: '#000',
     speed: 2
 };
@@ -94,6 +94,7 @@ Deps.autorun(function() {
     accountsUIBootstrap3.setLanguage(lang);
 });
 
+Subscription.createAndSubscribe("items-all");
 Subscription.createAndSubscribe("i18n");
 Subscription.createAndSubscribe("languages");
 Subscription.createAndSubscribe("categories");

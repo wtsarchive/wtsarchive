@@ -1,17 +1,36 @@
 <template name="adminItemsList">
 <h2>Manage archive items
+  <a class="btn btn-default btn-xs" href="{{pathFor 'admin.items.add'}}">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+  </a>
   {{> adminLanguagePicker}}
 </h2>
 
-<div class="row">
-  <div class="col-xs-6 col-md-4">
-    <input type="text" class="form-control" id="content-filter-text" placeholder="Filter strings...">
+<div id="admin-items-filter" class="row">
+  <div class="col-md-6">
+    Category:
+    <select id="admin-items-category">
+      <option value="">All</option>
+      {{#each categories}}
+      <option value="{{_id}}">{{name}}</option>
+      {{/each}}
+    </select>
   </div>
-  <div class="col-xs-6 col-md-4">
-  <a class="btn btn-default btn-sm" href="{{pathFor 'admin.items.add'}}">
-    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new item
-  </a>
+  <div class="col-md-6">
+    Filter items:
+    <input type="text" class="form-control input-sm" id="content-filter-text" placeholder="Publication name, code, etc...">
+  </div>
 </div>
+
+<div class="items row">
+  {{#each items}}
+  <div class="item">
+    <div class="item-image">
+      <img src="https://placeholdit.imgix.net/~text?txtsize=20&txt=cover%20image&w=120&h=154">
+    </div>
+    <p>{{title}} {{#if code}}<span>({{code}})</span>{{/if}}</p>
+  </div>
+  {{/each}}
 </div>
 
 </template>
