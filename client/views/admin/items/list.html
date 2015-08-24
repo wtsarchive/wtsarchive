@@ -32,12 +32,12 @@
 
 <div class="items row">
   {{#each items}}
-  <div class="item">
+  <a class="item" href="{{pathFor 'admin.items.edit'}}">
     <div class="item-image">
       <img src="/images/no-image.png" width="120">
     </div>
     <p>{{title}} {{#if code}}<span>({{code}})</span>{{/if}}</p>
-  </div>
+  </a>
   {{/each}}
 </div>
 
