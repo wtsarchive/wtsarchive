@@ -99,3 +99,4 @@ Subscription.createAndSubscribe("i18n");
 Subscription.createAndSubscribe("languages");
 Subscription.createAndSubscribe("categories");
 Subscription.createAndSubscribe("pages");
+Subscription.createAndSubscribe("covers");

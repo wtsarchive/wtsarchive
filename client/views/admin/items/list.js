@@ -38,3 +38,9 @@ Template.adminItemsList.events({
     Session.set("adminItemsCategory", category);
   }
 });
+
+Template.adminItemsItem.helpers({
+    image: function() {
+        return Covers.findOne(this.cover);
+    }
+});

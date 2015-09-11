@@ -32,3 +32,8 @@ Meteor.publish('languages', function () {
 Meteor.publish('i18n', function (id) {
     return Strings.find();
 });
+
+// Publish cover images
+Meteor.publish('covers', function() {
+    return Covers.find();
+});

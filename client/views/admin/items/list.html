@@ -32,13 +32,17 @@
 
 <div class="items row">
   {{#each items}}
-  <a class="item" href="{{pathFor 'admin.items.edit'}}">
-    <div class="item-image">
-      <img src="/images/no-image.png" width="120">
-    </div>
-    <p>{{title}} {{#if code}}<span>({{code}})</span>{{/if}}</p>
-  </a>
+    {{> adminItemsItem}}
   {{/each}}
 </div>
 
+</template>
+
+<template name="adminItemsItem">
+  <a class="item" href="{{pathFor 'admin.items.edit'}}">
+    <div class="item-image">
+      <img src="{{image.url}}" width="120">
+    </div>
+    <p>{{title}} {{#if code}}<span>({{code}})</span>{{/if}}</p>
+  </a>
 </template>

@@ -29,3 +29,6 @@ sha
 meteorhacks:kadira
 cfs:standard-packages
 cfs:filesystem
+cfs:graphicsmagick
+coffeescript
+yogiben:autoform-file
