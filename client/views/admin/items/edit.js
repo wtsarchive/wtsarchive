@@ -4,6 +4,17 @@ Template.adminItemsEdit.helpers({
     }
 });
 
+Template.adminItemsEdit.events({
+    "click #admin-item-delete": function() {
+        var check = confirm("Do you want to delete this item?");
+        if (check) {
+            Meteor.call("removeItem", this._id, function() {
+                Router.go('admin.items.list');
+            });
+        }
+    }
+});
+
 AutoForm.hooks({
   editItemForm: {
       onSuccess: function() {
