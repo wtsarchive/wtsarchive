@@ -16,10 +16,13 @@ Template.adminItemsList.helpers({
     var findObj = {};
     var type = Session.get("adminItemsType");
     var category = Session.get("adminItemsCategory");
+    var language = Session.get("adminSelectedLanguage");
     if (type)
       findObj.type = type;
     if (category)
       findObj.category = category;
+    if (language)
+      findObj.language = language;
 
     return Items.find(findObj);
   }

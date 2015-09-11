@@ -10,7 +10,7 @@ Meteor.publish('items-all', function () {
 
 // Single-item subscription
 Meteor.publish('items-one', function (id) {
-    return Countries.findOne(id);
+    return Items.find({_id: id});
 });
 
 // Categories

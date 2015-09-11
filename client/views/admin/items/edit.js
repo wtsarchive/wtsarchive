@@ -1,3 +1,10 @@
+Template.adminItemsEdit.onCreated(function () {
+    var instance = this;
+    this.autorun(function () {
+        instance.subscribe('items-one', instance.data._id);
+    });
+});
+
 Template.adminItemsEdit.helpers({
     item: function() {
         return Items.findOne(this._id);

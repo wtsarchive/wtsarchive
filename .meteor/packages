@@ -27,3 +27,5 @@ mrt:bootstrap-growl
 perak:markdown
 sha
 meteorhacks:kadira
+cfs:standard-packages
+cfs:filesystem
