@@ -48,6 +48,9 @@ Subscription = {
             sub: null
         };
     },
+    get: function(name) {
+        return this._subscriptions[name].sub;
+    },
     ready: function(name) {
         this._subscriptions[name].dep.depend();
         if (this._subscriptions[name].sub === null) return false;
