@@ -97,6 +97,18 @@ Deps.autorun(function() {
     accountsUIBootstrap3.setLanguage(lang);
 });
 
+// Detect language
+if (navigator) {
+  var lang = navigator.language || navigator.userLanguage;
+  if (!lang) Session.set("language", "en");
+  if (lang.toLowerCase() == "pl" || lang.toLowerCase() == "pl-pl") {
+    Session.set("language", "pl");
+  }
+  else {
+    Session.set("language", "en");
+  }
+}
+
 Subscription.createAndSubscribe("items-all");
 Subscription.createAndSubscribe("languages");
 Subscription.createAndSubscribe("categories");
