@@ -1,0 +1,19 @@
+<template name="pubsView">
+  <h2>{{item.title}}
+    {{#if notFound}}Publication not found!{{/if}}</h2>
+
+  {{#unless notFound}}
+  <p>{{item.text}}</p>
+
+  <h3>{{_ 'Downloads:'}}</h3>
+  <ul>
+    {{#each item.files}}
+    {{> pubsViewFile}}
+    {{/each}}
+  </ul>
+  {{/unless}}
+</template>
+
+<template name="pubsViewFile">
+  <li><a href="{{url}}">{{name}}</a> ({{size}})</li>
+</template>

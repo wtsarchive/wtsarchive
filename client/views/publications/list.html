@@ -2,5 +2,19 @@
   <h2>{{category}}
     {{#if notFound}}Category not found!{{/if}}</h2>
 
-  <p>[List of publications...]</p>
+  <div class="items row">
+    {{#each items}}
+    {{> pubsListItem}}
+    {{/each}}
+  </div>
+
+</template>
+
+<template name="pubsListItem">
+  <a class="item" href="{{pathFor 'pubs.view'}}">
+    <div class="item-image">
+      <img src="{{image.url}}">
+    </div>
+    <p>{{title}} {{#if code}}<span>({{code}})</span>{{/if}}</p>
+  </a>
 </template>

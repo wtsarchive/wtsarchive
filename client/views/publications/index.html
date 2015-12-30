@@ -1,3 +1,10 @@
 <template name="pubsIndex">
-  <h2>{{_ 'Publications'}}</h2>
+  <h2>{{_ 'Ostatnio dodane publikacje'}}</h2>
+
+  <div class="items row">
+    {{#each items}}
+    {{> pubsListItem}}
+    {{/each}}
+  </div>
+
 </template>

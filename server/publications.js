@@ -8,9 +8,12 @@ Meteor.publish('items-all', function () {
     return Items.find({}, {fields: {text: 0, files: 0}});
 });
 
-// Single-item subscription
+// Single-item subscriptions
 Meteor.publish('items-one', function (id) {
     return Items.find({_id: id});
+});
+Meteor.publish('items-code', function (code) {
+    return Items.find({code: code});
 });
 
 // Categories
