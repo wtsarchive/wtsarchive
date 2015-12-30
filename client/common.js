@@ -98,7 +98,6 @@ Deps.autorun(function() {
 });
 
 Subscription.createAndSubscribe("items-all");
-Subscription.createAndSubscribe("i18n");
 Subscription.createAndSubscribe("languages");
 Subscription.createAndSubscribe("categories");
 Subscription.createAndSubscribe("pages");
