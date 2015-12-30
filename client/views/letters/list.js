@@ -5,6 +5,6 @@ Template.lettersList.helpers({
     },
     category: function() {
         var category = Categories.findOne({slug: this.slug});
-        return category.name;
+        return category;
     }
 });

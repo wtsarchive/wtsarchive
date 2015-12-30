@@ -1,4 +1,4 @@
-Template.adminItemsList.rendered = function() {
+Template.adminItemsList.onRendered = function() {
     var category = Session.get("adminItemsCategory");
     if (category) {
         $('#admin-items-category').val(category);
