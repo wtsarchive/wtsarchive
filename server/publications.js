@@ -12,8 +12,8 @@ Meteor.publish('items-all', function () {
 Meteor.publish('items-one', function (id) {
     return Items.find({_id: id});
 });
-Meteor.publish('items-code', function (code) {
-    return Items.find({code: code});
+Meteor.publish('items-slug', function (slug) {
+    return Items.find({slug: slug});
 });
 
 // Categories

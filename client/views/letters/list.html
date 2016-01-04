@@ -3,4 +3,28 @@
     {{#if notFound}}Category not found!{{/if}}</h2>
 
   <p>{{category.description}}</p>
+
+  <div class="filters">
+    {{_ "Show year:"}}
+    <select id="items-year">
+      {{#each years}}
+      <option value="{{year}}" selected={{selected}}>{{year}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="items">
+    {{#each items}}
+    {{> lettersListItem}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="lettersListItem">
+  <a class="letter item" href="{{pathFor 'letters.view' code_url=code_url}}">
+    <div class="item-image">
+      <img src="{{image.url}}">
+    </div>
+    <p>{{title}}<br><span>{{date}}</span></p>
+  </a>
 </template>

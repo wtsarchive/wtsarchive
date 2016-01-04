@@ -1,0 +1,19 @@
+<template name="lettersView">
+  <h2>{{item.title}}
+    {{#if notFound}}Letter not found!{{/if}}</h2>
+
+  {{#unless notFound}}
+  <p>{{item.text}}</p>
+
+  <h3>{{_ 'Downloads:'}}</h3>
+  <ul>
+    {{#each item.files}}
+    {{> lettersViewFile}}
+    {{/each}}
+  </ul>
+  {{/unless}}
+</template>
+
+<template name="lettersViewFile">
+  <li><a href="{{url}}">{{name}}</a> ({{size}})</li>
+</template>

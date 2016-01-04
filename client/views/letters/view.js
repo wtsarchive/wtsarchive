@@ -1,11 +1,11 @@
-Template.pubsView.onCreated(function () {
+Template.lettersView.onCreated(function () {
     var instance = this;
     this.autorun(function() {
         instance.subscribe('items-slug', instance.data.slug);
     });
 });
 
-Template.pubsView.helpers({
+Template.lettersView.helpers({
   notFound: function() {
     var item = Items.findOne({slug: this.slug});
     return !item;
@@ -16,7 +16,7 @@ Template.pubsView.helpers({
   }
 });
 
-Template.pubsViewFile.helpers({
+Template.lettersViewFile.helpers({
   size: function() {
     return fileSize(this.filesize);
   }
