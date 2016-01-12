@@ -341,6 +341,7 @@ a {
 #sidebar-items {
     ul {
         color: #555;
+        padding: 0 24px 0 20px;
 
         li {
             margin-bottom: 10px;
@@ -349,6 +350,27 @@ a {
                 color: #999;
                 display: block;
                 margin-top: -1px;
+            }
+        }
+
+        .recents-item {
+            display: flex;
+            text-decoration: none !important;
+            margin-top: 10px;
+
+            .item-image {
+                width: 40px;
+                position: relative;
+                img {
+                    border: 1px solid #ccc;
+                    width: 30px;
+                }
+            }
+            .item-content {
+                flex: 1;
+                span {
+                    color: #a27230;
+                }
             }
         }
     }
