@@ -6,9 +6,15 @@ Template.sidebarHome.helpers({
 
 Template.recentsItem.helpers({
     image: function() {
-        return Covers.findOne(this.cover);
+      return Covers.findOne(this.cover);
     },
     date: function() {
-        return moment(this.added_on).format("MMMM Do, YYYY");
+      return moment(this.added_on).format("MMMM Do, YYYY");
+    },
+    route: function() {
+      if (this.type == "Publication")
+        return 'pubs.view';
+      else if (this.type == "Letter")
+        return 'letters.view';
     }
 });

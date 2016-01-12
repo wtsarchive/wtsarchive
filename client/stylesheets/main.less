@@ -344,7 +344,15 @@ a {
         padding: 0 24px 0 20px;
 
         li {
-            margin-bottom: 10px;
+            margin: 0 0 10px 0;
+            padding: 0;
+            list-style: none;
+
+            a {
+                display: flex;
+                text-decoration: none !important;
+                margin-top: 10px;
+            }
 
             small {
                 color: #999;
@@ -354,8 +362,6 @@ a {
         }
 
         .recents-item {
-            display: flex;
-            text-decoration: none !important;
             margin-top: 10px;
 
             .item-image {

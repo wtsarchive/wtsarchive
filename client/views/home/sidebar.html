@@ -14,13 +14,15 @@
 </template>
 
 <template name="recentsItem">
-  <li class="recents-item">
-    <div class="item-image">
-      <img src="{{image.url}}">
-    </div>
-    <div class="item-content">
-      <h3>{{title}}</h3>
-      <small>{{date}}</small>
-    </div>
+  <li class="recents-item" >
+    <a href="{{pathFor route code_url=code_url}}">
+      <div class="item-image">
+        <img src="{{image.url}}">
+      </div>
+      <div class="item-content">
+        <h3>{{title}}</h3>
+        <small>{{date}}</small>
+      </div>
+    </a>
   </li>
 </template>
