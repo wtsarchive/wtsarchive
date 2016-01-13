@@ -16,6 +16,20 @@ Template.layout.helpers({
 
         // Default sidebar template
         return "sidebarHome";
+    },
+    searchResults: function() {
+      return ItemSearch.getData({
+        transform: function(matchText, regExp) {
+          return matchText.replace(regExp, "<b>$&</b>")
+        },
+        sort: {isoScore: -1}
+      });
+    },
+    isSearching: function() {
+      return ItemSearch.getStatus().loading;
+    },
+    search: function() {
+      return Session.get('search');
     }
 });
 

@@ -82,6 +82,7 @@ meteorhacks:inject-data@1.4.1
 meteorhacks:kadira@2.26.3
 meteorhacks:meteorx@1.4.1
 meteorhacks:picker@1.0.3
+meteorhacks:search-source@1.4.2
 minifiers@1.1.7
 minimongo@1.0.10
 mobile-experience@1.0.1

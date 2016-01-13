@@ -27,7 +27,20 @@
 
       <div id="content">
         <div class="content-wrapper">
+          {{#unless search}}
           {{> yield }}
+          {{else}}
+          <h2>{{_ 'Search:'}} {{search}}</h2>
+            {{#if isSearching}}
+            <p>{{_ 'Loading...'}}</p>
+            {{else}}
+            <ul class="search-results">
+            {{#each searchResults}}
+            {{> searchResult}}
+            {{/each}}
+            </ul>
+            {{/if}}
+          {{/unless}}
         </div>
       </div>
     </div>

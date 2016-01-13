@@ -512,9 +512,10 @@ a {
             }
         }
         p {
+            color: #444;
             flex: 1;
-            span {
-                color: #a27230;
+            small {
+                color: #999;
             }
         }
     }
@@ -545,6 +546,33 @@ ul.downloads {
         i {
             font-size: 16px;
             padding-right: 5px;
+        }
+    }
+}
+
+ul.search-results {
+    padding: 0;
+    list-style: none;
+
+    .item {
+        display: flex;
+        text-decoration: none !important;
+        margin-top: 10px;
+        
+        .item-image {
+            width: 46px;
+            position: relative;
+            img {
+                border: 1px solid #ccc;
+                width: 40px;
+            }
+        }
+        p {
+            flex: 1;
+            color: #444;
+            small {
+                color: #999;
+            }
         }
     }
 }

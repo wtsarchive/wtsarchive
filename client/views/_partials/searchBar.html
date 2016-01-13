@@ -1,0 +1,17 @@
+<template name="searchBar">
+  <div id="searchbar">
+    <label for="search"><i class="fa fa-search"></i></label>
+    <input type="text" name="search" id="search-box" class="input" placeholder="{{_ 'Search'}}">
+  </div>
+</template>
+
+<template name="searchResult">
+  <li class="search-item">
+    <a class="item" href="{{pathFor route code_url=code_url}}">
+      <div class="item-image">
+        <img src="{{image.url}}">
+      </div>
+      <p>{{{title}}}<br><small>{{date}}</small></p>
+    </a>
+  </li>
+</template>

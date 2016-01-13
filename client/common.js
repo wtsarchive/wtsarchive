@@ -118,3 +118,11 @@ Subscription.createAndSubscribe("languages");
 Subscription.createAndSubscribe("categories");
 Subscription.createAndSubscribe("pages");
 Subscription.createAndSubscribe("covers");
+
+// Search
+var options = {
+  keepHistory: 1000 * 60 * 5,
+  localSearch: true
+};
+
+ItemSearch = new SearchSource('items', ['code', 'title', 'text'], options);
