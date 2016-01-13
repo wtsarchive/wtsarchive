@@ -18,8 +18,8 @@ Template.pubsList.helpers({
     if (!Subscription.ready("categories")) return;
     var category = Categories.findOne({slug: this.slug});
 
-    var start = new Date(Session.get("filterYear"), 1, 1);
-    var end = new Date(Session.get("filterYear"), 12, 30);
+    var start = new Date(Session.get("filterYear"), 0, 1);
+    var end = new Date(Session.get("filterYear"), 11, 30);
     return Items.find({category: category._id, language: Session.get("language"), published_on: {$gte: start, $lte: end}});
   },
   years: function() {

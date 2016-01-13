@@ -5,7 +5,7 @@ SearchSource.defineSource('items', function(searchText, options) {
       return Items.find({
         code: searchText
       }).fetch();
-    };
+    }
 
     var regExp = buildRegExp(searchText);
     
