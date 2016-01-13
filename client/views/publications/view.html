@@ -6,14 +6,10 @@
   <p>{{item.text}}</p>
 
   <h3>{{_ 'Downloads:'}}</h3>
-  <ul>
+  <ul class="downloads">
     {{#each item.files}}
-    {{> pubsViewFile}}
+    {{> fileItem}}
     {{/each}}
   </ul>
   {{/unless}}
-</template>
-
-<template name="pubsViewFile">
-  <li><a href="{{url}}">{{name}}</a> ({{size}})</li>
 </template>

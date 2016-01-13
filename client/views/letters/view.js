@@ -15,9 +15,3 @@ Template.lettersView.helpers({
     return item;
   }
 });
-
-Template.lettersViewFile.helpers({
-  size: function() {
-    return fileSize(this.filesize);
-  }
-});

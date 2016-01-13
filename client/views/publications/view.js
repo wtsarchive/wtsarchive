@@ -15,9 +15,3 @@ Template.pubsView.helpers({
     return item;
   }
 });
-
-Template.pubsViewFile.helpers({
-  size: function() {
-    return fileSize(this.filesize);
-  }
-});
