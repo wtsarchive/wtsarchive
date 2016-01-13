@@ -1,8 +1,7 @@
-var years = [2010, 2011, 2012, 2013, 2014, 2015];
-years = years.sort().reverse();
-
 Template.lettersList.onRendered(function() {
-  Session.set("filterYear", years[0]); 
+  var controller = Iron.controller();
+  var years = controller.state.get('years');
+  Session.set("filterYear", _.keys(years)[0]); 
 });
 
 Template.lettersList.helpers({
@@ -24,11 +23,14 @@ Template.lettersList.helpers({
     return Items.find({category: category._id, language: Session.get("language"), published_on: {$gte: start, $lte: end}});
   },
   years: function() {
+    var controller = Iron.controller();
+    var years = controller.state.get('years');
+
     var yearsArray = [];
     var currentYear = Session.get("filterYear");
-    for (var year = years[0]; year >= years[years.length - 1]; year--) {
+    _.keys(years).forEach(function(year) {
       yearsArray.push({year: year, selected: currentYear == year});
-    }
+    });
     return yearsArray;
   }
 });

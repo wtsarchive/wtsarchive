@@ -46,3 +46,5 @@ ejson
 spacebars
 check
 meteorhacks:search-source
+tmeasday:publish-counts
+meteorhacks:aggregate
