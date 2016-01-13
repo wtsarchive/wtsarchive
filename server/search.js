@@ -1,11 +1,18 @@
 SearchSource.defineSource('items', function(searchText, options) {
   if(searchText) {
+    // Search by publication code
+    if (/[a-zA-Z0-9_]+-[a-zA-Z]{1,2}$/.test(searchText)) {
+      return Items.find({
+        code: searchText
+      }).fetch();
+    };
+
     var regExp = buildRegExp(searchText);
     
     var plainResults = Items.find({
       $or: [
         {title: regExp},
-        {code: searchText}
+        {normalizedCode: searchText}
       ]
     }).fetch();
 
