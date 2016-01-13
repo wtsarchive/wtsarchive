@@ -47,7 +47,7 @@ Template.lettersListItem.helpers({
         return Covers.findOne(this.cover);
     },
     date: function() {
-        return moment(this.published_on).format("MMMM Do, YYYY");
+        return moment(this.published_on).format(Session.get("fullDateFormat"));
     }
 });
 

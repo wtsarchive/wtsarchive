@@ -9,7 +9,7 @@ Template.recentsItem.helpers({
       return Covers.findOne(this.cover);
     },
     date: function() {
-      return moment(this.added_on).format("MMMM Do, YYYY");
+      return moment(this.added_on).format(Session.get("fullDateFormat"));
     },
     route: function() {
       if (this.type == "Publication")
