@@ -1,6 +1,7 @@
 <template name="lettersView">
   <h2>{{item.title}}
     {{#if notFound}}Letter not found!{{/if}}</h2>
+  {{> itemTags tags=item.tags}}
 
   {{#unless notFound}}
   <p>{{item.text}}</p>
