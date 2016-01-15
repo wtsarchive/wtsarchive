@@ -4,6 +4,7 @@
 
   <p>{{category.description}}</p>
 
+  {{#if showFilters}}
   <div class="filters">
     {{_ "Show year:"}}
     <select id="items-year">
@@ -12,6 +13,7 @@
       {{/each}}
     </select>
   </div>
+  {{/if}}
 
   <div class="items">
     {{#each items}}

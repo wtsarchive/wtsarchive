@@ -1,7 +1,11 @@
 <template name="itemTags">
   <div class="item-tags">
     {{#each tags}}
-    <a class="tag">{{this}}</a>
+    {{> itemTag}}
     {{/each}}
   </div>
+</template>
+
+<template name="itemTag">
+  <a class="tag" href="{{pathFor 'tag.view' tag=this}}">{{this}}</a>
 </template>
