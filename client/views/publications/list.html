@@ -1,26 +1,3 @@
-<template name="pubsList">
-  <h2>{{category.name}}
-    {{#if notFound}}Category not found!{{/if}}</h2>
-
-  <p>{{category.description}}</p>
-
-  <div class="filters">
-    {{_ "Show year:"}}
-    <select id="items-year">
-      {{#each years}}
-      <option value="{{year}}" selected={{selected}}>{{year}}</option>
-      {{/each}}
-    </select>
-  </div>
-
-  <div class="items row">
-    {{#each items}}
-    {{> pubsListItem}}
-    {{/each}}
-  </div>
-
-</template>
-
 <template name="pubsListItem">
   <a class="publication item" href="{{pathFor 'pubs.view'}}">
     <div class="item-image">

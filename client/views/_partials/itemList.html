@@ -1,0 +1,29 @@
+<template name="itemsList">
+  <h2>{{category.name}}
+    {{#if notFound}}Category not found!{{/if}}</h2>
+
+  <p>{{category.description}}</p>
+
+  <div class="filters">
+    {{_ "Show year:"}}
+    <select id="items-year">
+      {{#each years}}
+      <option value="{{year}}" selected={{selected}}>{{year}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="items">
+    {{#each items}}
+    {{> itemsListItem}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="itemsListItem">
+  {{#if isPublication}}
+  {{> pubsListItem}}
+  {{else}}
+  {{> lettersListItem}}
+  {{/if}}
+</template>
