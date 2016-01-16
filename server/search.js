@@ -13,11 +13,13 @@ SearchSource.defineSource('items', function(searchText, options) {
       $or: [
         {title: regExp},
         {normalizedCode: searchText}
-      ]
+      ],
+      language: options.language
     }).fetch();
 
     var fullTextResults = Items.find({
-      $text: {$search: searchText}
+      $text: {$search: searchText},
+      language: options.language
     }, {
       fields: {
         score: { $meta: "textScore" }
