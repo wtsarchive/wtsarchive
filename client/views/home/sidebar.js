@@ -1,3 +1,7 @@
+Template.sidebarHome.onRendered(function() {
+  this.subscribe("items-recent", Session.get("language"));
+});
+
 Template.sidebarHome.helpers({
     recents: function() {
         return Items.find({language: Session.get("language")}, {sort: {added_on: -1}, limit: 5});

@@ -3,9 +3,17 @@
  * Collection publish definitions
  */
 
-// Subscribe to list of all items for fast browsing
-Meteor.publish('items-all', function () {
-    return Items.find({}, {fields: {text: 0, files: 0}});
+// Recent items
+Meteor.publish('items-recent', function (lang, type) {
+  if (type)
+    return Items.find({language: lang, type: type}, {sort: {added_on: -1}, limit: 10, fields: {text: 0, files: 0}});
+  else
+    return Items.find({language: lang}, {sort: {added_on: -1}, limit: 5, fields: {text: 0, files: 0}});
+});
+
+// Items in category
+Meteor.publish('items-category', function (categoryId) {
+    return Items.find({category: categoryId});
 });
 
 // Single-item subscriptions
