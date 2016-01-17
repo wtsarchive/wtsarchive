@@ -16,6 +16,11 @@ Meteor.publish('items-category', function (categoryId) {
     return Items.find({category: categoryId});
 });
 
+// Items in a tag
+Meteor.publish('items-tag', function (tag) {
+    return Items.find({tags: tag});
+});
+
 // Single-item subscriptions
 Meteor.publish('items-one', function (id) {
     return Items.find({_id: id});
