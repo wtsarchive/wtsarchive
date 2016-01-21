@@ -17,10 +17,12 @@ Meteor.methods({
       }
     ]);
 
-    var years = {};
+    var years = [];
     results.forEach(function(result) {
-      years[result._id.year] = result.count;
+      years.push({year: result._id.year, count: result.count});
     });
+
+    years = _.sortBy(years, 'year').reverse();
 
     return years;
   }

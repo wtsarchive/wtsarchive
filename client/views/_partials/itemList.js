@@ -1,8 +1,8 @@
 Template.itemsList.onRendered(function() {
   var controller = Iron.controller();
   var years = controller.state.get('years');
-  if (years)
-    Session.set("filterYear", _.keys(years)[0]); 
+  if (years && years[0])
+    Session.set("filterYear", years[0].year); 
 });
 
 Template.itemsList.helpers({
@@ -46,8 +46,8 @@ Template.itemsList.helpers({
 
     if (years) {
       var currentYear = Session.get("filterYear");
-      _.keys(years).forEach(function(year) {
-        yearsArray.push({year: year, selected: currentYear == year});
+      years.forEach(function(year) {
+        yearsArray.push({year: year.year, selected: currentYear == year.year});
       });
     }
     return yearsArray;
