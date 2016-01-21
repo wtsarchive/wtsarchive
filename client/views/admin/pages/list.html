@@ -1,15 +1,11 @@
 <template name="adminPagesList">
 <h2>Article pages
+  <a class="btn btn-default btn-xs" href="{{pathFor 'admin.pages.add'}}">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+  </a>
   {{> adminLanguagePicker}}
 </h2>
 
-<p>
-  <a class="btn btn-default btn-sm" href="{{pathFor 'admin.pages.add'}}">
-    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add new page
-  </a>
-</p>
-
-<h4>Article list</h4>
 <ul>
 {{#each articles}}
   <li><a href="{{pathFor 'admin.pages.edit'}}">{{title}}</a></li>
