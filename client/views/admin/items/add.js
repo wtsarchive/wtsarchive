@@ -14,3 +14,11 @@ AutoForm.hooks({
       }
   }
 });
+
+Template.adminItemsAdd.onRendered(function() {
+  var languageSelect = $('select[name=language]');
+  var adminLang = Session.get('adminSelectedLanguage');
+  if (languageSelect && adminLang) {
+    languageSelect.val(adminLang);
+  }
+});

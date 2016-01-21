@@ -14,19 +14,10 @@
 
 </template>
 
-<template name="adminItemsItem">
-  <a class="publication item" href="{{pathFor 'admin.items.edit'}}">
-    <div class="item-image">
-      <img src="{{image.url}}">
-    </div>
-    <p>{{title}} {{#if code}}<span>({{code}})</span>{{/if}}</p>
-  </a>
-</template>
-
 <template name="adminItemsCellImage">
   <img src="{{cover.url}}" width="50">
 </template>
 
 <template name="adminItemsCellActions">
-  <button type="button" class="btn btn-sm btn-default edit" data-id="{{_id}}">Edit</button>
+  <button type="button" class="btn btn-sm btn-default" data-id="{{_id}}">Edit</button>
 </template>
