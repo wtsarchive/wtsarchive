@@ -271,6 +271,11 @@ a {
 
     .sidebar-section {
         margin-top: 20px;
+        ul {
+            ul {
+                padding-left: 20px;
+            }
+        }
     }
 
     h2 {
@@ -610,4 +615,9 @@ ul.search-results {
     position: relative !important;
     margin: 150px auto !important;
     left: 0 !important;
+}
+
+.pagination > .active > a {
+    background: @link !important;
+    border-color: @linkHover !important;
 }

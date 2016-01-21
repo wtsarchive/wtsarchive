@@ -3,7 +3,15 @@
   <div class="sidebar-section">
     <h2>Archive</h2>
     <ul>
-      <li><a href="{{pathFor 'admin.items.list'}}">Items</a></li>
+      <li><a href="{{pathFor 'admin.items.list'}}">Items</a>
+        {{#if showItemsTypes}}
+        <ul class="items-types">
+          {{#each itemsTypes}}
+          {{> adminSidebarTypeItem}}
+          {{/each}}
+        </ul>
+        {{/if}}
+      </li>
       <li><a href="{{pathFor 'admin.categories.list'}}">Categories</a></li>
     </ul>
   </div>
@@ -17,4 +25,14 @@
     </ul>
   </div>
 </div>
+</template>
+
+<template name="adminSidebarTypeItem">
+  <li>
+    {{#unless active}}
+    <a href="#" data-type="{{this}}">{{this}}s</a>
+    {{else}}
+    {{this}}s
+    {{/unless}}
+  </li>
 </template>

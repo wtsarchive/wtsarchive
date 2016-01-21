@@ -105,6 +105,7 @@ if (navigator) {
   if (!lang) Session.set("language", "en");
   if (lang.toLowerCase() == "pl" || lang.toLowerCase() == "pl-pl") {
     Session.set("language", "pl");
+    Session.set("adminSelectedLanguage", "pl");
   }
   else {
     Session.set("language", "en");

@@ -6,34 +6,10 @@
   {{> adminLanguagePicker}}
 </h2>
 
-<div id="admin-items-filter" class="row">
-  <div class="col-md-4">
-    Type:
-    <select id="admin-items-type">
-      <option value="">All</option>
-      {{#each types}}
-      <option value="{{this}}">{{this}}</option>
-      {{/each}}
-    </select>
-  </div>
-  <div class="col-md-4">
-    Category:
-    <select id="admin-items-category">
-      <option value="">All</option>
-      {{#each categories}}
-      <option value="{{_id}}">{{name}}</option>
-      {{/each}}
-    </select>
-  </div>
-  <div class="col-md-4">
-    <input type="text" class="form-control input-sm" id="content-filter-text" placeholder="Filter by name, code, etc...">
-  </div>
-</div>
-
 <div class="items row">
-  {{#each items}}
-    {{> adminItemsItem}}
-  {{/each}}
+  <div class="col-md-12">
+  {{> tabular table=TabularTables.AdminItems selector=selector class="table table-striped items-table"}}
+  </div>
 </div>
 
 </template>
@@ -45,4 +21,12 @@
     </div>
     <p>{{title}} {{#if code}}<span>({{code}})</span>{{/if}}</p>
   </a>
+</template>
+
+<template name="adminItemsCellImage">
+  <img src="{{cover.url}}" width="50">
+</template>
+
+<template name="adminItemsCellActions">
+  <button type="button" class="btn btn-sm btn-default edit" data-id="{{_id}}">Edit</button>
 </template>

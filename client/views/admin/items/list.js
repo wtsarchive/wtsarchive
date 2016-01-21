@@ -6,57 +6,24 @@ Template.adminItemsList.onRendered = function() {
 };
 
 Template.adminItemsList.helpers({
-    types: function() {
-        return ItemTypes;
-    },
-    categories: function() {
-        return Categories.find();
-    },
-    items: function() {
-        var findObj = {};
-        var type = Session.get("adminItemsType");
-        var category = Session.get("adminItemsCategory");
-        var language = Session.get("adminSelectedLanguage");
-        var filter = Session.get("adminItemsFilter") ? new RegExp(Session.get("adminItemsFilter"), "i") : null;
+  selector: function() {
+    var selector = {language: Session.get('adminSelectedLanguage')};
+    var type = Session.get("adminItemsType");
+    if (type)
+      selector.type = type;
 
-        if (type)
-            findObj.type = type;
-        if (category)
-            findObj.category = category;
-        if (language)
-            findObj.language = language;
-        if (filter) {
-            findObj = {
-                $and: [
-                    findObj,
-                    {$or: [
-                        {title: filter},
-                        {code: filter}
-                    ]}
-                ]
-            };
-        }
-
-        return Items.find(findObj);
-    }
+    return selector;
+  }
 });
 
-Template.adminItemsList.events({
-    "change #admin-items-type": function(e) {
-        var type = $(e.currentTarget).val();
-        Session.set("adminItemsType", type);
-    },
-    "change #admin-items-category": function(e) {
-        var category = $(e.currentTarget).val();
-        Session.set("adminItemsCategory", category);
-    },
-    "keyup #content-filter-text": function(e) {
-        Session.set("adminItemsFilter", $('#content-filter-text').val());
-    }
+Template.adminItemsCellImage.helpers({
+  cover: function() {
+    return Covers.findOne(this.cover);
+  }
 });
 
-Template.adminItemsItem.helpers({
-    image: function() {
-        return Covers.findOne(this.cover);
-    }
+Template.adminItemsCellActions.events({
+  'click button': function(e) {
+    Router.go('admin.items.edit', {_id: $(e.target).data('id')});
+  }
 });
