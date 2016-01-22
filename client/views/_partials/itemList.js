@@ -51,6 +51,9 @@ Template.itemsList.helpers({
       });
     }
     return yearsArray;
+  },
+  isTagView: function() {
+    return !!this.tag;
   }
 });
 

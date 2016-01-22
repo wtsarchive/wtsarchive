@@ -16,10 +16,20 @@
   {{/if}}
 
   <div class="items">
-    {{#each items}}
-    {{> itemsListItem}}
-    {{/each}}
+    {{#if isTagView}}
+      {{#each items}}
+        {{> itemsTagListItem}}
+      {{/each}}
+    {{else}}
+      {{#each items}}
+        {{> itemsListItem}}
+      {{/each}}
+    {{/if}}
   </div>
+</template>
+
+<template name="itemsTagListItem">
+  {{> lettersListItem}}
 </template>
 
 <template name="itemsListItem">
