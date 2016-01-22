@@ -128,3 +128,6 @@ var options = {
 };
 
 ItemSearch = new SearchSource('items', ['code', 'title', 'text'], options);
+
+// CFS Chunk size for uploads
+FS.config.uploadChunkSize = 524288;

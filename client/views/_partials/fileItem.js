@@ -9,5 +9,8 @@ Template.fileItem.helpers({
       Movie: "fa-file-video-o"
     };
     return icons[this.type];
+  },
+  isExternal: function() {
+    return this.url.indexOf("http") === 0;
   }
 });

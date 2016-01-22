@@ -1,3 +1,7 @@
 <template name="fileItem">
+  {{#if isExternal}}
+  <li><i class="fa {{icon}}"></i> <a href="{{url}}" target="_blank">{{name}}</a> ({{size}})</li>
+  {{else}}
   <li><i class="fa {{icon}}"></i> <a href="{{url}}" target="_blank" download>{{name}}</a> ({{size}})</li>
+  {{/if}}
 </template>
