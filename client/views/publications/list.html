@@ -1,7 +1,7 @@
 <template name="pubsListItem">
   <a class="publication item" href="{{pathFor 'pubs.view'}}">
     <div class="item-image">
-      <img src="{{image.url}}">
+      <img src="{{image}}">
     </div>
     <p>{{title}} {{#if code}}<span>({{code}})</span>{{/if}}</p>
   </a>

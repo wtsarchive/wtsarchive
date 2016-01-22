@@ -6,7 +6,7 @@ Template.sidebarHome.helpers({
 
 Template.recentsItem.helpers({
     image: function() {
-      return this.coverImage();
+      return this.coverUrl();
     },
     date: function() {
       return moment(this.added_on).format(Session.get("fullDateFormat"));

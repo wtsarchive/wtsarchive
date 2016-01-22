@@ -1,7 +1,13 @@
 <template name="lettersView">
-  <h2>{{item.title}}
+  <h2 class="{{#if item.hasCover}}has-cover{{/if}}">{{item.title}}
     {{#if notFound}}Letter not found!{{/if}}</h2>
   {{> itemTags tags=item.tags}}
+
+  {{#if item.hasCover}}
+  <div class="item-cover {{#if item.hasTags}}has-tags{{/if}}">
+    <a href="{{item.coverOriginalUrl}}" target="_blank"><img src="{{item.coverUrl}}" width="120"></a>
+  </div>
+  {{/if}}
 
   {{#unless notFound}}
   {{#markdown}}{{item.text}}{{/markdown}}
