@@ -1,8 +1,8 @@
 Template.lettersListItem.helpers({
-    image: function() {
-        return Covers.findOne(this.cover);
-    },
-    date: function() {
-        return moment(this.published_on).format(Session.get("fullDateFormat"));
-    }
+  image: function() {
+    return this.coverImage();
+  },
+  date: function() {
+    return moment(this.published_on).format(Session.get("fullDateFormat"));
+  }
 });

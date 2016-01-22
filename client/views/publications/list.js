@@ -1,5 +1,5 @@
 Template.pubsListItem.helpers({
-    image: function() {
-        return Covers.findOne(this.cover);
-    }
+  image: function() {
+    return this.coverImage();
+  }
 });
