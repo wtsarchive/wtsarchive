@@ -131,3 +131,19 @@ ItemSearch = new SearchSource('items', ['code', 'title', 'text'], options);
 
 // CFS Chunk size for uploads
 FS.config.uploadChunkSize = 524288;
+
+// Setup Markdown renderer
+var markdownRenderer = new marked.Renderer();
+markdownRenderer.table = function(header, body) {
+  return '<table class="table table-striped">\n'
+  + '<thead>\n'
+  + header
+  + '</thead>\n'
+  + '<tbody>\n'
+  + body
+  + '</tbody>\n'
+  + '</table>\n';
+};
+Markdown.setOptions({
+  renderer: markdownRenderer
+});

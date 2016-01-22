@@ -4,7 +4,7 @@
   {{> itemTags tags=item.tags}}
 
   {{#unless notFound}}
-  <p>{{item.text}}</p>
+  {{#markdown}}{{item.text}}{{/markdown}}
 
   <h3>{{_ 'Downloads:'}}</h3>
   <ul class="downloads">
