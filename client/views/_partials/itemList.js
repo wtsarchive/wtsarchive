@@ -33,10 +33,10 @@ Template.itemsList.helpers({
 
       var start = new Date(Session.get("filterYear"), 0, 1);
       var end = new Date(Session.get("filterYear"), 11, 30);
-      return Items.find({category: category._id, language: Session.get("language"), published_on: {$gte: start, $lte: end}});
+      return Items.find({category: category._id, language: Session.get("language"), published_on: {$gte: start, $lte: end}}, {sort: {published_on: -1}});
     }
     else {
-      return Items.find({language: Session.get("language"), tags: this.tag}); 
+      return Items.find({language: Session.get("language"), tags: this.tag}, {sort: {published_on: -1}}); 
     }
   },
   years: function() {
