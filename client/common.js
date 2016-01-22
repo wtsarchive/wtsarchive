@@ -132,7 +132,7 @@ ItemSearch = new SearchSource('items', ['code', 'title', 'text'], options);
 // CFS Chunk size for uploads
 FS.config.uploadChunkSize = 524288;
 
-// Setup Markdown renderer
+// Setup Markdown renderer and lexer
 var markdownRenderer = new marked.Renderer();
 markdownRenderer.table = function(header, body) {
   return '<table class="table table-striped">\n'
@@ -144,6 +144,10 @@ markdownRenderer.table = function(header, body) {
   + '</tbody>\n'
   + '</table>\n';
 };
+
+var markdownLexer = new marked.Lexer();
+markdownLexer.rules.code = /^\0$/;
+
 Markdown.setOptions({
   renderer: markdownRenderer
 });
