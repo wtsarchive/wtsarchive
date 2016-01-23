@@ -7,6 +7,9 @@
         {{_ 'Letter not found!'}}
       {{/if}}
     {{/if}}
+    {{#if isAdmin}}
+    <a href="{{pathFor 'admin.items.edit' _id=item._id}}" class="btn btn-xs btn-default">Edit</a>
+    {{/if}}
   </h2>
   {{> itemTags tags=item.tags}}
 

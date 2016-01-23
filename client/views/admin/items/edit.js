@@ -8,6 +8,13 @@ Template.adminItemsEdit.onCreated(function () {
 Template.adminItemsEdit.helpers({
     item: function() {
         return Items.findOne(this._id);
+    },
+    itemTemplate: function() {
+      var item = Items.findOne(this._id);
+      if (item.type == "Publication")
+        return "pubs.view";
+      else
+        return "letters.view";
     }
 });
 
