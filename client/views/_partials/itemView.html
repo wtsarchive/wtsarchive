@@ -1,6 +1,13 @@
-<template name="lettersView">
+<template name="itemsView">
   <h2 class="{{#if item.hasCover}}has-cover{{/if}}">{{item.title}}
-    {{#if notFound}}Letter not found!{{/if}}</h2>
+    {{#if notFound}}
+      {{#if isPublication}}
+        {{_ 'Publication not found!'}}
+      {{else}}
+        {{_ 'Letter not found!'}}
+      {{/if}}
+    {{/if}}
+  </h2>
   {{> itemTags tags=item.tags}}
 
   {{#if item.hasCover}}
