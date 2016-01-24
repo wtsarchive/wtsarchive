@@ -8,6 +8,7 @@
   <div class="filters">
     {{_ "Show year:"}}
     <select id="items-year">
+      <option value="all">{{_ 'All years'}}</option>
       {{#each years}}
       <option value="{{year}}" selected={{selected}}>{{year}}</option>
       {{/each}}

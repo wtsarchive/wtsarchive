@@ -1,10 +1,3 @@
-Template.itemsList.onRendered(function() {
-  var controller = Iron.controller();
-  var years = controller.state.get('years');
-  if (years && years[0])
-    Session.set("filterYear", years[0].year); 
-});
-
 Template.itemsList.helpers({
   notFound: function() {
     if (this.slug) {
@@ -27,13 +20,20 @@ Template.itemsList.helpers({
     return !!this.slug;
   },
   items: function() {
+    var controller = Iron.controller();
     if (this.slug) {
       if (!Subscription.ready("categories")) return;
       var category = Categories.findOne({slug: this.slug});
 
-      var start = new Date(Session.get("filterYear"), 0, 1);
-      var end = new Date(Session.get("filterYear"), 11, 30);
-      return Items.find({category: category._id, language: Session.get("language"), published_on: {$gte: start, $lte: end}}, {sort: {published_on: -1}});
+      var currentYear = controller.params.query.year;
+      if (!currentYear || currentYear == 'all') {
+        return Items.find({category: category._id, language: Session.get("language")}, {sort: {published_on: -1}});
+      }
+      else {
+        var start = new Date(currentYear, 0, 1);
+        var end = new Date(currentYear, 11, 30);
+        return Items.find({category: category._id, language: Session.get("language"), published_on: {$gte: start, $lte: end}}, {sort: {published_on: -1}});
+      }
     }
     else {
       return Items.find({language: Session.get("language"), tags: this.tag}, {sort: {published_on: -1}}); 
@@ -45,7 +45,7 @@ Template.itemsList.helpers({
     var yearsArray = [];
 
     if (years) {
-      var currentYear = Session.get("filterYear");
+      var currentYear = controller.params.query.year;
       years.forEach(function(year) {
         yearsArray.push({year: year.year, selected: currentYear == year.year});
       });
@@ -58,10 +58,11 @@ Template.itemsList.helpers({
 });
 
 Template.itemsList.events({
-    "change #items-year": function(e) {
-        var year = $(e.currentTarget).val();
-        Session.set("filterYear", year);
-    },
+  "change #items-year": function(e) {
+    var controller = Iron.controller();
+    var year = $(e.currentTarget).val();
+    Router.go(Router.current().route.getName(), {slug: controller.params.slug}, {query: 'year=' + year});
+  },
 });
 
 Template.itemsListItem.helpers({
