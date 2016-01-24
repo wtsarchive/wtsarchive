@@ -1,8 +1,15 @@
 var getPageCount = function() {
   var controller = Iron.controller();
+  var currentYear = controller.params.query.year;
   var years = controller.state.get('years');
-  var itemCount = _.reduce(years, function(a, b) { return (a.count || a) + b.count;});
-  return Math.ceil(itemCount / controller.state.get('perPage'));
+  if (!currentYear || currentYear == 'all') {
+    var itemCount = _.reduce(years, function(a, b) { return (a.count || a) + b.count; });
+    return Math.ceil(itemCount / controller.state.get('perPage'));
+  }
+  else {
+    var year = _.filter(years, function(year) { return year.year == currentYear; });
+    return Math.ceil(year.count / controller.state.get('perPage'));
+  }
 };
 
 Template.itemPager.helpers({
