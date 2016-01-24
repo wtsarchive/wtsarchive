@@ -95,8 +95,6 @@ Page = {
 Deps.autorun(function() {
     var lang = Session.get("language");
     accountsUIBootstrap3.setLanguage(lang);
-
-    Meteor.subscribe("items-recent", Session.get("language"));
 });
 
 // Detect language
