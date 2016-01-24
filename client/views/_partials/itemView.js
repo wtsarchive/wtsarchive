@@ -1,3 +1,8 @@
+Template.itemsView.rendered = function() {
+  var item = Items.findOne({slug: this.data.slug});
+  Meteor.call("itemView", item._id);
+};
+
 Template.itemsView.helpers({
   notFound: function() {
     var item = Items.findOne({slug: this.slug});

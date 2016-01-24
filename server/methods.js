@@ -36,5 +36,8 @@ Meteor.methods({
     else if (filter.tag) {
       return Items.find({tags: filter.tag}).count();
     }
+  },
+  itemView: function(id) {
+    Items.update(id, {$inc: {views: 1}});
   }
 });
