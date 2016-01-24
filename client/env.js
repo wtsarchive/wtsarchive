@@ -4,5 +4,6 @@
  */
 
 ClientConfig = {
-    defaultLanguage: "en"
+    defaultLanguage: "en",
+    defaultPerPage: 10
 };

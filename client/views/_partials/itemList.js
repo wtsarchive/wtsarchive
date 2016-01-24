@@ -2,13 +2,12 @@ Template.itemsList.helpers({
   notFound: function() {
     if (this.slug) {
       var category = Categories.findOne({slug: this.slug});
-      return !category && Subscription.ready("categories");
+      return !category;
     }
     return false;
   },
   category: function() {
     if (this.slug) {
-      if (!Subscription.ready("categories")) return;
       var category = Categories.findOne({slug: this.slug});
       return category;
     }
@@ -22,7 +21,6 @@ Template.itemsList.helpers({
   items: function() {
     var controller = Iron.controller();
     if (this.slug) {
-      if (!Subscription.ready("categories")) return;
       var category = Categories.findOne({slug: this.slug});
 
       var currentYear = controller.params.query.year;

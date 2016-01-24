@@ -117,7 +117,6 @@ fileSize = function(a,b,c,d,e){
 };
 
 Subscription.createAndSubscribe("languages");
-Subscription.createAndSubscribe("categories");
 Subscription.createAndSubscribe("pages");
 Subscription.createAndSubscribe("covers");
 

@@ -1,0 +1,21 @@
+<template name="itemPager">
+  {{#if show}}
+  <ul class="items-pager">
+    <li class="paginate_button previous {{#unless previous}}disabled{{/unless}}">
+      <a href="#" aria-controls="pagination" data-dt-idx="{{previous}}" tabindex="0">«</a>
+    </li>
+    {{#each pages}}
+    {{> itemPagerPage}}
+    {{/each}}
+    <li class="paginate_button next {{#unless next}}disabled{{/unless}}">
+      <a href="#" aria-controls="pagination" data-dt-idx="{{next}}" tabindex="0">»</a>
+    </li>
+  </ul>
+  {{/if}}
+</template>
+
+<template name="itemPagerPage">
+  <li class="paginate_button page {{#if active}}active{{/if}}">
+    <a href="#" aria-controls="pagination" data-dt-idx="{{page}}" tabindex="0">{{page}}</a>
+  </li>
+</template>

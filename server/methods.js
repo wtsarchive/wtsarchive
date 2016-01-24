@@ -25,5 +25,16 @@ Meteor.methods({
     years = _.sortBy(years, 'year').reverse();
 
     return years;
+  },
+  itemCount: function(filter) {
+    if (filter.category) {
+      var category = Categories.findOne({slug: filter.category});
+      if (!category) return {};
+
+      return Items.find({category: category._id}).count();
+    }
+    else if (filter.tag) {
+      return Items.find({tags: filter.tag}).count();
+    }
   }
 });

@@ -6,6 +6,7 @@
 
   {{#if showFilters}}
   <div class="filters">
+    {{> itemPager}}
     {{_ "Show year:"}}
     <select id="items-year">
       <option value="all">{{_ 'All years'}}</option>
@@ -27,6 +28,7 @@
       {{/each}}
     {{/if}}
   </div>
+
 </template>
 
 <template name="itemsTagListItem">
