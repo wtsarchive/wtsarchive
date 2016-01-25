@@ -14,7 +14,11 @@ Template.layout.helpers({
         if (currentRoute.indexOf("admin") === 0)
             return "sidebarAdmin";
 
-        // Default sidebar template
+        // Tags sidebar (search only)
+        if (currentRoute.indexOf("tag") === 0)
+            return "sidebarPlain";
+
+        // Default sidbar template
         return "sidebarHome";
     },
     searchResults: function() {
