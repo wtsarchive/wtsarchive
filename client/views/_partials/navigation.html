@@ -23,6 +23,7 @@
   <li class="{{active 'letters'}}"><a href="{{pathFor 'letters.index'}}">{{_ 'Letters'}}</a></li>
   <li><a href="https://chat.wtsarchive.com" target="_blank">{{_ 'Chat'}}</a></li>
   {{#if isLoggedIn}}
+  <li class="{{active 'admin'}}"><a href="{{pathFor 'admin.index'}}">{{_ 'Admin'}}</a></li>
   <li><a href="#" class="at-logout">{{_ 'Logout'}}</a></li>
   {{else}}
   <li><a href="{{pathFor 'login'}}">{{_ 'Login'}}</a></li>

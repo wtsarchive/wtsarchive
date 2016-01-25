@@ -2,7 +2,10 @@ Template.searchBar.events({
   "keyup #search-box": _.throttle(function(e) {
     var text = $(e.target).val().trim();
     ItemSearch.search(text, {language: Session.get('language')});
-    Session.set('search', text);
+    if (text.length > 1)
+      Session.set('search', text);
+    else
+      Session.set('search', '');
   }, 200)
 });
 

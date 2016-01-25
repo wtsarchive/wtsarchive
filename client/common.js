@@ -48,8 +48,9 @@ AccountsTemplates.configure({
   sendVerificationEmail: false,
   lowercaseUsername: true,
   focusFirstInput: true,
-  onSubmitHook: function() {
-    Router.go('admin.index');
+  onSubmitHook: function(error, state) {
+    if (!error && state == 'signIn')
+      Router.go('admin.index');
   }
 });
 
