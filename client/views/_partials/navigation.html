@@ -1,7 +1,6 @@
 <template name="navigation">
 <ul id="navigation">
   {{> navigationLinks}}
-  {{> loginButtons}}
   {{> languagePicker}}
 </ul>
 <button class="navbar-toggle" type="button">
@@ -23,4 +22,9 @@
   <li class="{{active 'pubs'}}"><a href="{{pathFor 'pubs.index'}}">{{_ 'Publications'}}</a></li>
   <li class="{{active 'letters'}}"><a href="{{pathFor 'letters.index'}}">{{_ 'Letters'}}</a></li>
   <li><a href="https://chat.wtsarchive.com" target="_blank">{{_ 'Chat'}}</a></li>
+  {{#if isLoggedIn}}
+  <li><a href="#" class="at-logout">{{_ 'Logout'}}</a></li>
+  {{else}}
+  <li><a href="{{pathFor 'login'}}">{{_ 'Login'}}</a></li>
+  {{/if}}
 </template>

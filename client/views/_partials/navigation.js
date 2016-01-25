@@ -10,3 +10,11 @@ Template.navigation.events({
         $('#sidebar').toggleClass("on");
     }
 });
+
+Template.navigationLinks.events({
+  'click .at-logout': function(e) {
+    e.preventDefault();
+
+    AccountsTemplates.logout();
+  }
+});

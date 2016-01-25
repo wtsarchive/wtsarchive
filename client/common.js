@@ -19,6 +19,10 @@ UI.registerHelper('isAdmin', function() {
     return Roles.userIsInRole(Meteor.user(), ['admin']);
 });
 
+UI.registerHelper('isLoggedIn', function() {
+    return !!Meteor.userId();
+});
+
 UI.registerHelper('languages', function() {
     return Languages.find({}, {sort: {name: 1}});
 });
@@ -36,9 +40,39 @@ UI.registerHelper("_", function(id) {
     return result.replace(/\n/g, "<br>");
 });
 
-Accounts.ui.config({
-    passwordSignupFields: "USERNAME_AND_OPTIONAL_EMAIL"
+AccountsTemplates.configure({
+  confirmPassword: true,
+  enablePasswordChange: true,
+  forbidClientAccountCreation: false,
+  overrideLoginErrors: true,
+  sendVerificationEmail: false,
+  lowercaseUsername: true,
+  focusFirstInput: true,
+  onSubmitHook: function() {
+    Router.go('admin.index');
+  }
 });
+
+var pwd = AccountsTemplates.removeField('password');
+AccountsTemplates.removeField('email');
+AccountsTemplates.addFields([
+  {
+      _id: "username",
+      type: "text",
+      displayName: "username",
+      required: true,
+      minLength: 5,
+  },
+  {
+      _id: 'email',
+      type: 'email',
+      required: true,
+      displayName: "email",
+      re: /.+@(.+){2,}\.(.+){2,}/,
+      errStr: __('Invalid email'),
+  },
+  pwd
+]);
 
 Subscription = {
     _subscriptions: {},
@@ -94,7 +128,7 @@ Page = {
 
 Deps.autorun(function() {
     var lang = Session.get("language");
-    accountsUIBootstrap3.setLanguage(lang);
+    T9n.setLanguage(lang);
 });
 
 // Detect language
