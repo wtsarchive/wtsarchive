@@ -11,7 +11,7 @@ Template.searchBar.events({
 
 Template.searchResult.helpers({
     image: function() {
-        return Covers.findOne(this.cover);
+      return this.coverUrl();
     },
     date: function() {
         return moment(this.published_on).format("MMMM Do, YYYY");

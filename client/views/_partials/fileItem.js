@@ -6,7 +6,9 @@ Template.fileItem.helpers({
     var icons = {
       PDF: "fa-file-pdf-o",
       Image: "fa-file-image-o",
-      Movie: "fa-file-video-o"
+      Movie: "fa-file-video-o",
+      Archive: "fa-file-archive-o",
+      Audio: "fa-file-audio-o"
     };
     return icons[this.type];
   },

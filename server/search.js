@@ -10,6 +10,7 @@ SearchSource.defineSource('items', function(searchText, options) {
     var plainResults = Items.find({
       $or: [
         {title: titleRegExp(searchText)},
+        {tags: titleRegExp(searchText)},
         {normalizedCode: codeRegExp(searchText)}
       ],
       language: options.language
