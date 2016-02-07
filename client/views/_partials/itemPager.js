@@ -2,13 +2,14 @@ var getPageCount = function() {
   var controller = Iron.controller();
   var currentYear = controller.params.query.year;
   var years = controller.state.get('years');
+  if (!years) return 1;
   if (!currentYear || currentYear == 'all') {
     var itemCount = _.reduce(years, function(a, b) { return (a.count || a) + b.count; });
     return Math.ceil(itemCount / controller.state.get('perPage'));
   }
   else {
     var year = _.filter(years, function(year) { return year.year == currentYear; });
-    return Math.ceil(year.count / controller.state.get('perPage'));
+    return Math.ceil(year[0].count / controller.state.get('perPage'));
   }
 };
 
@@ -59,7 +60,7 @@ Template.itemPager.events({
     if (button.parent().hasClass("disabled"))
       return;
 
-    query.page = button.data('dt-idx');
+    query.page = button.attr('data-dt-idx');
 
     Router.go(Router.current().route.getName(), controller.params, {query: $.param(query)});
   }

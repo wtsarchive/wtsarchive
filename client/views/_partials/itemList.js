@@ -1,3 +1,40 @@
+Template.itemsList.onCreated(function() {
+    var template = this;
+    var previousSlug;
+    var controller = Iron.controller();
+    template.autorun(function() {
+      Subs.clear();
+        if (Router.current().data().slug) {
+            var category = Categories.findOne({slug: Router.current().data().slug});
+            setPageTitle(category.type + 's', category.name);
+            
+            Subs.subscribe('items-category', category._id, {
+              lang: Session.get("language"),
+              year: Router.current().params.query.year,
+              page: Router.current().params.query.page,
+              perPage: Router.current().params.query.perPage || ClientConfig.defaultPerPage
+            });
+
+            if (previousSlug == Router.current().data().slug) return;
+            previousSlug = Router.current().data().slug;
+            Meteor.call("itemYearsByCategory", Router.current().data().slug, function(err, res) {
+              if (!err)
+                controller.state.set('years', res);
+            });
+        }
+        else {
+            if (Router.current().data().tag) {
+                setPageTitle(s.capitalize(Router.current().data().tag));
+                Subs.subscribe('items-tag', Router.current().data().tag, {
+                  lang: Session.get("language"),
+                  page: Router.current().params.query.page,
+                  perPage: Router.current().params.query.page || ClientConfig.defaultPerPage
+                });
+            }
+        }
+    });
+});
+
 Template.itemsList.helpers({
   notFound: function() {
     if (this.slug) {

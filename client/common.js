@@ -75,43 +75,13 @@ AccountsTemplates.addFields([
   pwd
 ]);
 
-Subscription = {
-    _subscriptions: {},
-    create: function(name) {
-        this._subscriptions[name] = {
-            dep: new Deps.Dependency(),
-            sub: null
-        };
-    },
-    get: function(name) {
-        return this._subscriptions[name].sub;
-    },
-    ready: function(name) {
-        this._subscriptions[name].dep.depend();
-        if (this._subscriptions[name].sub === null) return false;
-        return this._subscriptions[name].sub.ready();
-    },
-    subscribe: function(name) {
-        var args = [name].concat(Array.prototype.slice.call(arguments, 1));
-        this._subscriptions[name].sub = Meteor.subscribe.apply(null, args);
-        var self = this;
-        Deps.autorun(function() {
-            var ready = self._subscriptions[name].sub.ready();
-            self._subscriptions[name].dep.changed();
-        });
-    },
-    createAndSubscribe: function(name) {
-        this.create(name);
-        this.subscribe(name);
-    }
-};
+Subs = new SubsManager();
 
 Page = {
     render: function(title, text) {
         return "## " + title + "\n\n" + text;
     },
     show: function(page) {
-        if (!Subscription.ready('pages')) return "Loading...";
         if (!page)
             return this.render("Not found", "Requested article has not been found!");
         else
@@ -148,10 +118,6 @@ if (navigator) {
 fileSize = function(a,b,c,d,e){
  return (b=Math,c=b.log,d=1024,e=c(a)/c(d)|0,a/b.pow(d,e)).toFixed(2)+' '+(e?'kMGTPEZY'[--e]+'B':'Bytes');
 };
-
-Subscription.createAndSubscribe("languages");
-Subscription.createAndSubscribe("pages");
-Subscription.createAndSubscribe("covers");
 
 // Search
 var options = {

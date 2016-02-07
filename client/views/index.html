@@ -28,7 +28,12 @@
       <div id="content">
         <div class="content-wrapper">
           {{#unless search}}
-          {{> yield }}
+            <div class="{{#if loading}}hide{{/if}}">
+              {{> yield }}
+            </div>
+            {{#if loading}}
+            <h2>Loading...</h2>
+            {{/if}}
           {{else}}
           <h2>{{_ 'Search:'}} {{search}}</h2>
             {{#if isSearching}}

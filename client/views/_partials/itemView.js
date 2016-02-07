@@ -1,7 +1,14 @@
-Template.itemsView.rendered = function() {
-  var item = Items.findOne({slug: this.data.slug});
-  Meteor.call("itemView", item._id);
-};
+Template.itemsView.onCreated(function() {
+    var template = this;
+    template.autorun(function() {
+        Subs.subscribe('items-slug', template.data.slug);
+        var item = Items.findOne({slug: template.data.slug});
+        if (item) {
+          setPageTitle(item.type + 's', item.title);
+          Meteor.call("itemView", item._id);
+        }
+    });
+});
 
 Template.itemsView.helpers({
   notFound: function() {
@@ -14,7 +21,7 @@ Template.itemsView.helpers({
   },
   isPublication: function() {
     var item = Items.findOne({slug: this.slug});
-    return item.type == "Publication";
+    return !item || item.type == "Publication";
   }
 });
 

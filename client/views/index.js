@@ -34,6 +34,9 @@ Template.layout.helpers({
     },
     search: function() {
       return Session.get('search');
+    },
+    loading: function() {
+      return !Subs.ready();
     }
 });
 
