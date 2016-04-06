@@ -6,7 +6,7 @@ Template.searchBar.events({
       Session.set('search', text);
     else
       Session.set('search', '');
-  }, 200)
+  }, 400)
 });
 
 Template.searchResult.helpers({

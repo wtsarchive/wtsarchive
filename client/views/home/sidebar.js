@@ -16,7 +16,7 @@ Template.recentsItem.helpers({
       return this.coverUrl();
     },
     date: function() {
-      return moment(this.added_on).format(Session.get("fullDateFormat"));
+      return moment(this.published_on).format(Session.get("fullDateFormat"));
     },
     route: function() {
       if (this.type == "Publication")

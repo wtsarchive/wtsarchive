@@ -23,7 +23,6 @@ Meteor.methods({
     });
 
     years = _.sortBy(years, 'year').reverse();
-    Meteor._sleepForMs(1000);
 
     return years;
   },
