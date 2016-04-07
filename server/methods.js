@@ -39,5 +39,8 @@ Meteor.methods({
   },
   itemView: function(id) {
     Items.update(id, {$inc: {views: 1}});
+  },
+  pageView: function(id) {
+    Pages.update(id, {$inc: {views: 1}});
   }
 });

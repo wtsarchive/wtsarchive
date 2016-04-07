@@ -87,12 +87,14 @@ Page = {
         else
             return this.render(page.title, page.text);
     },
-    getByIdentifier: function(id) {
+    getByIdentifier: function(id, returnObj) {
         var page = Pages.findOne({identifier: id, language: Session.get("language")});
+        if (returnObj) return page;
         return this.show(page);
     },
-    getBySlug: function(slug) {
+    getBySlug: function(slug, returnObj) {
         var page = Pages.findOne({slug: slug});
+        if (returnObj) return page;
         return this.show(page);
     }
 };
