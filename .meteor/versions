@@ -145,4 +145,5 @@ useraccounts:bootstrap@1.13.1
 useraccounts:core@1.13.1
 webapp@1.2.3
 webapp-hashing@1.0.5
+wtsarchive:spiderable@1.0.12
 yogiben:autoform-file@0.4.2

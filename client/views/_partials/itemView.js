@@ -1,13 +1,15 @@
 Template.itemsView.onCreated(function() {
-    var template = this;
-    template.autorun(function() {
-        Subs.subscribe('items-slug', template.data.slug);
-        var item = Items.findOne({slug: template.data.slug});
-        if (item) {
-          setPageTitle(item.type + 's', item.title);
-          Meteor.call("itemView", item._id);
-        }
-    });
+  var template = this;
+  var lastItem;
+  template.autorun(function() {
+    Subs.subscribe('items-slug', template.data.slug);
+    var item = Items.findOne({slug: template.data.slug});
+    if (item && lastItem != item._id) {
+      setPageTitle(item.type + 's', item.title);
+      Meteor.call("itemView", item._id);
+      lastItem = item._id;
+    }
+  });
 });
 
 Template.itemsView.helpers({
