@@ -1,8 +1,8 @@
 Template.itemsView.onCreated(function() {
   var template = this;
   var lastItem;
-  template.autorun(function() {
-    Subs.subscribe('items-slug', template.data.slug);
+  Meteor.autorun(function() {
+    Subs.subscribe('items-slug', Router.current().data().slug);
     var item = Items.findOne({slug: template.data.slug});
     if (item && lastItem != item._id) {
       setPageTitle(item.type + 's', item.title);
