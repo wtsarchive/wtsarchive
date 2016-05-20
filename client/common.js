@@ -105,16 +105,14 @@ Deps.autorun(function() {
 });
 
 // Detect language
-if (navigator) {
-  var lang = navigator.language || navigator.userLanguage;
-  if (!lang) Session.set("language", "en");
-  if (lang.toLowerCase() == "pl" || lang.toLowerCase() == "pl-pl") {
-    Session.set("language", "pl");
-    Session.set("adminSelectedLanguage", "pl");
-  }
-  else {
-    Session.set("language", "en");
-  }
+var lang = headers.get('accept-language') || (navigator && (navigator.language || navigator.userLanguage));
+if (!lang) Session.set("language", "en");
+if (lang.toLowerCase() == "pl" || lang.toLowerCase() == "pl-pl") {
+  Session.set("language", "pl");
+  Session.set("adminSelectedLanguage", "pl");
+}
+else {
+  Session.set("language", "en");
 }
 
 fileSize = function(a,b,c,d,e){

@@ -66,7 +66,7 @@ Template.itemsList.helpers({
       }
       else {
         var start = new Date(currentYear, 0, 1);
-        var end = new Date(currentYear, 11, 30);
+        var end = new Date(currentYear, 11, 31, 23, 59, 59);
         return Items.find({category: category._id, language: Session.get("language"), published_on: {$gte: start, $lte: end}}, {sort: {published_on: -1}});
       }
     }

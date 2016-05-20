@@ -504,9 +504,21 @@ a {
     -webkit-box-flex: 0;
     -webkit-flex: none;
     flex: none;
+    position: relative;
 
     a {
         color: #F49765;
+    }
+
+    .login-link {
+        color: #454140;
+        position: absolute;
+        bottom: 2px;
+        right: 0px;
+        display: block;
+        width: 25px;
+        height: 22px;
+        text-align: center;
     }
 }
 
@@ -517,6 +529,9 @@ a {
         }
 
         br {
+            display: none;
+        }
+        .login-link {
             display: none;
         }
     }
@@ -719,6 +734,11 @@ code {
 
 .at-pwd-form {
     width: 290px;
+}
+
+.at-signup-link, .at-signin-link {
+    width: 260px;
+    text-align: center;
 }
 
 @media screen and (max-width: 350px) {
