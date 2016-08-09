@@ -39,7 +39,7 @@ Meteor.publishComposite('items-category', function (categoryId, options) {
       limit: parseInt(options.perPage)
     };
 
-    if (!cursorOpts.skip || cursorOpts.skip < 0) 
+    if (!cursorOpts.skip || cursorOpts.skip < 0)
       cursorOpts.skip = 0;
 
     if (!options.year || options.year == 'all') {
@@ -47,7 +47,7 @@ Meteor.publishComposite('items-category', function (categoryId, options) {
     }
     else {
       var start = new Date(options.year, 0, 1);
-      var end = new Date(options.year, 11, 30);
+      var end = new Date(options.year, 11, 31, 23, 59, 59);
       return Items.find({category: categoryId, language: options.lang, published_on: {$gte: start, $lte: end}}, cursorOpts);
     }
   });
