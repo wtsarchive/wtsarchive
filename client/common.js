@@ -105,7 +105,7 @@ Deps.autorun(function() {
 });
 
 // Detect language
-var lang = headers.get('accept-language') || (navigator && (navigator.language || navigator.userLanguage));
+var lang = (navigator && (navigator.language || navigator.userLanguage)) || headers.get('accept-language');
 if (!lang) Session.set("language", "en");
 if (lang.toLowerCase() == "pl" || lang.toLowerCase() == "pl-pl") {
   Session.set("language", "pl");

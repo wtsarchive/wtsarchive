@@ -12,3 +12,6 @@ dump/
 mup.json
 mupx.json
 settings.json
+
+# VS Code
+.vscode/
