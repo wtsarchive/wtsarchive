@@ -33,8 +33,12 @@ Meteor.publishComposite('items-category', function (categoryId, options) {
     if (!options) options = {page: 1};
     if (!options.perPage) options.perPage = 10;
 
+    var category = Categories.findOne(categoryId);
+    if (!category) return;
+    var sort = category.sorting || {published_on: -1};
+
     var cursorOpts = {
-      sort: {published_on: -1},
+      sort: sort,
       skip: (parseInt(options.page) - 1) * parseInt(options.perPage),
       limit: parseInt(options.perPage)
     };

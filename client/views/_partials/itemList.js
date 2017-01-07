@@ -59,10 +59,12 @@ Template.itemsList.helpers({
     var controller = Iron.controller();
     if (this.slug) {
       var category = Categories.findOne({slug: this.slug});
+      if (!category) return;
+      var sort = category.sorting || {published_on: -1};
 
       var currentYear = controller.params.query.year;
       if (!currentYear || currentYear == 'all') {
-        return Items.find({category: category._id, language: Session.get("language")}, {sort: {published_on: -1}});
+        return Items.find({category: category._id, language: Session.get("language")}, {sort: sort});
       }
       else {
         var start = new Date(currentYear, 0, 1);
